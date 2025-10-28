@@ -11,7 +11,7 @@ My goal is to create a GitOps-managed homelab server.
 - Gateway API?
 - ArgoCD + Kustomize?
 
-Inspo: //github.com/theepicsaxguy/homelab/tree/main
+Inspo: https://github.com/theepicsaxguy/homelab/tree/main
 
 
 ### Phase 1 - Learning Phase 
