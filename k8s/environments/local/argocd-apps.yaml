@@ -8,7 +8,7 @@ spec:
   source:
     repoURL: https://github.com/AndrewSpeelman/homelab
     targetRevision: main
-    path: environments/local
+    path: k8s/environments/local
   destination:
     server: https://kubernetes.default.svc
     namespace: default
