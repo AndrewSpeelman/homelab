@@ -6,7 +6,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/AndrewSpeelman/homelab
+    repoURL: https://github.com/AndrewSpeelman/homelab.git
     targetRevision: master
     path: k8s/environments/local
   destination:

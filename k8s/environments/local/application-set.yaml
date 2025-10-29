@@ -6,7 +6,7 @@ metadata:
 spec:
   generators:
     - git:
-        repoURL: https://github.com/AndrewSpeelman/homelab
+        repoURL: https://github.com/AndrewSpeelman/homelab.git
         revision: master
         directories:
           - path: k8s/applications/*/overlays/local
@@ -16,7 +16,7 @@ spec:
     spec:
       project: default
       source:
-        repoURL: https://github.com/AndrewSpeelman/homelab
+        repoURL: https://github.com/AndrewSpeelman/homelab.git
         targetRevision: master
         path: '{{path}}'
       destination:
