@@ -2,7 +2,7 @@
 
 My goal is to create a GitOps-managed homelab server.
 
-### General Ideas / Plans 
+### General Ideas
 
 - [Release Please](https://github.com/googleapis/release-please) using [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/)
 - Proxmox 
@@ -10,6 +10,8 @@ My goal is to create a GitOps-managed homelab server.
 - Talos? 
 - Gateway API?
 - ArgoCD + Kustomize?
+- https://github.com/zapier/kubechecks? 
+- 
 
 Inspo: https://github.com/theepicsaxguy/homelab/tree/main
 
