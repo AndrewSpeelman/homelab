@@ -12,13 +12,13 @@ spec:
           - path: k8s/applications/*/overlays/local
   template:
     metadata:
-      name: '{{path.basename}}'
+      name: '{{path.components.2 | lower}}'
     spec:
       project: default
       source:
         repoURL: https://github.com/AndrewSpeelman/homelab.git
         targetRevision: master
-        path: '{{path.components.2 | lower}}'
+        path: '{{path}}'
       destination:
         server: https://kubernetes.default.svc
         namespace: default
