@@ -12,7 +12,7 @@ spec:
           - path: k8s/applications/*/overlays/local
   template:
     metadata:
-      name: '{{path.parent.parent.basename}}'
+      name: '{{path}}'
     spec:
       project: default
       source:
