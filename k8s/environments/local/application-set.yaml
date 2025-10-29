@@ -6,7 +6,7 @@ metadata:
 spec:
   generators:
     - git:
-        repoURL: https://github.com/drewspee/homelab.git
+        repoURL: https://github.com/AndrewSpeelman/homelab
         revision: main
         directories:
           - path: k8s/applications/*/overlays/local
