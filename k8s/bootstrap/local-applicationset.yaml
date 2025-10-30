@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: local-apps
+  name: homelab-apps
   namespace: argocd
 spec:
   generators:
@@ -9,10 +9,14 @@ spec:
         repoURL: https://github.com/AndrewSpeelman/homelab.git
         revision: master
         directories:
-          - path: k8s/applications/*/overlays/local
+          - path: k8s/applications/web
+          - path: k8s/applications/media
+          # Add more categories as you build them:
+          # - path: k8s/applications/network
+          # - path: k8s/applications/monitoring
   template:
     metadata:
-      name: '{{path[2]}}'
+      name: 'apps-{{path.basename}}'
     spec:
       project: default
       source:
@@ -21,8 +25,10 @@ spec:
         path: '{{path}}'
       destination:
         server: https://kubernetes.default.svc
-        namespace: default
+        namespace: argocd
       syncPolicy:
         automated:
           prune: true
           selfHeal: true
+        syncOptions:
+          - CreateNamespace=true
