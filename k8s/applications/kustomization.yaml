@@ -4,6 +4,6 @@ kind: Kustomization
 resources:
   - web
   - media
+  - network
   # Add more categories as you build them:
-  # - network
   # - monitoring
