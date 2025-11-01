@@ -12,8 +12,7 @@ spec:
           - path: k8s/applications/web
           - path: k8s/applications/media
           - path: k8s/applications/network
-          # Add more categories as you build them:
-          # - path: k8s/applications/monitoring
+          - path: k8s/applications/monitoring
   template:
     metadata:
       name: 'apps-{{path.basename}}'

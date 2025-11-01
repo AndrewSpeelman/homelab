@@ -5,5 +5,4 @@ resources:
   - web
   - media
   - network
-  # Add more categories as you build them:
-  # - monitoring
+  - monitoring

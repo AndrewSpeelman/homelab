@@ -1,0 +1,50 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: beszel-agent
+  namespace: monitoring
+  labels:
+    app: beszel-agent
+spec:
+  selector:
+    matchLabels:
+      app: beszel-agent
+  template:
+    metadata:
+      labels:
+        app: beszel-agent
+    spec:
+      hostNetwork: true
+      containers:
+      - name: beszel-agent
+        image: henrygd/beszel-agent:latest
+        env:
+        # These will need to be configured after initial hub setup
+        # You'll get the KEY and optional TOKEN from the Beszel hub UI
+        - name: PORT
+          value: "45876"
+        # Uncomment and set these after creating a system in the hub:
+        # - name: KEY
+        #   value: "your-public-key-from-hub"
+        # - name: HUB_URL
+        #   value: "http://beszel-hub.monitoring.svc.cluster.local:8090"
+        volumeMounts:
+        - name: docker-socket
+          mountPath: /var/run/docker.sock
+          readOnly: true
+        - name: agent-data
+          mountPath: /var/lib/beszel-agent
+        resources:
+          requests:
+            memory: "16Mi"
+            cpu: "10m"
+          limits:
+            memory: "32Mi"
+            cpu: "100m"
+      volumes:
+      - name: docker-socket
+        hostPath:
+          path: /var/run/docker.sock
+          type: Socket
+      - name: agent-data
+        emptyDir: {}

@@ -10,8 +10,11 @@ My goal is to create a GitOps-managed homelab server.
 - Talos? 
 - Gateway API?
 - ArgoCD + Kustomize?
-- https://github.com/zapier/kubechecks? 
-- 
+- [KubeChecks](https://github.com/zapier/kubechecks)?
+- [Kargo](https://kargo.io/)?
+- [Homarr](https://homarr.dev/)
+- Promethus & Graphana ([Beszel](https://github.com/henrygd/beszel) for short term)
+- [Shoutrrr](https://github.com/containrrr/shoutrrr) for notifications? 
 
 Inspo: https://github.com/theepicsaxguy/homelab/tree/main
 
@@ -44,6 +47,23 @@ get default admin password:
 ```
 kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d
 ```
+
+### Beszel Monitoring
+
+Access Beszel UI:
+```
+kubectl port-forward svc/beszel-hub -n monitoring 8090:8090
+```
+- http://localhost:8090
+
+**Initial Setup:**
+1. Access the Beszel hub UI (first visit creates admin account)
+2. Create a new system to get the public KEY
+3. Update the agent DaemonSet with the KEY and HUB_URL:
+   - Edit `k8s/applications/monitoring/beszel/agent-daemonset.yaml`
+   - Uncomment and set the `KEY` and `HUB_URL` environment variables
+   - The hub URL inside the cluster is: `http://beszel-hub.monitoring.svc.cluster.local:8090`
+4. Commit and push - ArgoCD will sync the updated agent configuration
 
 
 
