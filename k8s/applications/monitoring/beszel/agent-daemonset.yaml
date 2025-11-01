@@ -23,6 +23,8 @@ spec:
           value: "45876"
         - name: KEY
           value: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIQvLIL5s+4D68iiCLouyc+1DCS4qMDLKr3/2Jfjtx82"
+        - name: TOKEN
+          value: "533344aa-95de-4b9b-9a73-e0112e69778f"
         - name: HUB_URL
           value: "http://beszel-hub.monitoring.svc.cluster.local:8090"
         volumeMounts:
