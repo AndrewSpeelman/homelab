@@ -19,15 +19,12 @@ spec:
       - name: beszel-agent
         image: henrygd/beszel-agent:latest
         env:
-        # These will need to be configured after initial hub setup
-        # You'll get the KEY and optional TOKEN from the Beszel hub UI
         - name: PORT
           value: "45876"
-        # Uncomment and set these after creating a system in the hub:
-        # - name: KEY
-        #   value: "your-public-key-from-hub"
-        # - name: HUB_URL
-        #   value: "http://beszel-hub.monitoring.svc.cluster.local:8090"
+        - name: KEY
+          value: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIQvLIL5s+4D68iiCLouyc+1DCS4qMDLKr3/2Jfjtx82"
+        - name: HUB_URL
+          value: "http://beszel-hub.monitoring.svc.cluster.local:8090"
         volumeMounts:
         - name: docker-socket
           mountPath: /var/run/docker.sock
