@@ -12,9 +12,11 @@ My goal is to create a GitOps-managed homelab server.
 - ArgoCD + Kustomize?
 - [KubeChecks](https://github.com/zapier/kubechecks)?
 - [Kargo](https://kargo.io/)?
-- [Homarr](https://homarr.dev/)
+- ~~[Homarr](https://homarr.dev/)~~ [Homepage](https://github.com/gethomepage/homepage)
+  - 11/1/25: decided to use Homepage. 
 - Promethus & Graphana ([Beszel](https://github.com/henrygd/beszel) for short term)
 - [Shoutrrr](https://github.com/containrrr/shoutrrr) for notifications? 
+- Longhorn?
 
 Inspo: https://github.com/theepicsaxguy/homelab/tree/main
 

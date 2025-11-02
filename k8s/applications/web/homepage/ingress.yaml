@@ -1,24 +1,25 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: nginx
+  name: homepage
   namespace: web
+  labels:
+    app.kubernetes.io/name: homepage
   annotations:
-    kubernetes.io/ingress.class: nginx
     gethomepage.dev/enabled: "true"
-    gethomepage.dev/name: "Nginx"
-    gethomepage.dev/description: "Web server test application"
+    gethomepage.dev/name: "Homepage"
+    gethomepage.dev/description: "Homelab Dashboard"
     gethomepage.dev/group: "Web"
-    gethomepage.dev/icon: "nginx.png"
+    gethomepage.dev/icon: "homepage.png"
 spec:
   rules:
-    - host: nginx.local
+    - host: homepage.local
       http:
         paths:
           - path: /
             pathType: Prefix
             backend:
               service:
-                name: nginx
+                name: homepage
                 port:
-                  number: 80
+                  number: 3000
