@@ -69,3 +69,5 @@ data:
         username: {{HOMEPAGE_VAR_BESZEL_USER}}
         password: {{HOMEPAGE_VAR_BESZEL_PASSWORD}}
         version: 2
+  docker.yaml: |
+    # Docker integration disabled (using Kubernetes instead)
