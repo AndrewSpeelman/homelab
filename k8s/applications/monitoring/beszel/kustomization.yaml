@@ -6,3 +6,4 @@ resources:
   - hub-deployment.yaml
   - hub-service.yaml
   - agent-daemonset.yaml
+  - ingress.yaml
