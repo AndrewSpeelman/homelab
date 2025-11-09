@@ -5,3 +5,11 @@ resources:
   # Official ingress-nginx deployment for bare-metal/minikube
   # Uses NodePort to expose the ingress controller
   - https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.13.3/deploy/static/provider/baremetal/deploy.yaml
+
+patches:
+  # Enable SSL passthrough for ArgoCD and other HTTPS services
+  - path: controller-patch.yaml
+    target:
+      kind: Deployment
+      name: ingress-nginx-controller
+      namespace: ingress-nginx
