@@ -1,0 +1,24 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: springboot-demo
+  namespace: springboot
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    gethomepage.dev/enabled: "true"
+    gethomepage.dev/name: "Spring Boot Demo"
+    gethomepage.dev/description: "Spring Boot test application"
+    gethomepage.dev/group: "Development"
+    gethomepage.dev/icon: "spring.png"
+spec:
+  rules:
+    - host: springboot-demo.local
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: springboot-demo
+                port:
+                  number: 8080

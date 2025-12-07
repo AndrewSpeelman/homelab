@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: springboot
+  labels:
+    kubernetes.io/metadata.name: springboot
+    app.kubernetes.io/managed-by: argocd
+    app.kubernetes.io/part-of: applications
