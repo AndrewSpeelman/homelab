@@ -50,6 +50,12 @@ get default admin password:
 kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d
 ```
 
+
+When adding a new service, for now, we'll have to add the hostname to /etc/hosts/, e.g.,
+```
+echo "192.168.49.2  springboot-demo.local" | sudo tee -a /etc/hosts
+```
+
 ### Beszel Monitoring
 
 Access Beszel UI:
